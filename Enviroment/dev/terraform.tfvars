@@ -1,0 +1,127 @@
+rgs = {
+  rg1 = {
+    name     = "Module_rg1"
+    location = "Centralindia"
+  }
+  rg2 = {
+    name     = "Module_rg2"
+    location = "West US"
+  }
+}
+
+vnet = {
+  vnet1 = {
+    name                = "vnet1"
+    location            = "Centralindia"
+    resource_group_name = "Module_rg1"
+    address_space       = ["10.0.0.0/16"]
+  }
+}
+
+subnet = {
+  app_subnet = {
+    name             = "app_subnet"
+    vnet_name        = "vnet1-vnet"
+    rg_name          = "Module_rg1"
+    address_prefixes = ["10.0.1.0/24"]
+  }
+  web_subnet = {
+    name             = "web_subnet"
+    vnet_name        = "vnet1-vnet"
+    rg_name          = "Module_rg1"
+    address_prefixes = ["10.0.2.0/24"]
+  }
+}
+
+storageaccount = {
+  storageaccount1 = {
+    name                = "storageaccount1appdata"
+    resource_group_name = "Module_rg1"
+    location            = "Centralindia"
+  }
+  storageaccount2 = {
+    name                = "storageaccount2webdata"
+    resource_group_name = "Module_rg2"
+    location            = "West US"
+  }
+}
+
+nsg = {
+  nsg1 = {
+    name                = "nsg1"
+    resource_group_name = "Module_rg1"
+    location            = "Centralindia"
+  }
+  nsg2 = {
+    name                = "nsg2"
+    resource_group_name = "Module_rg2"
+    location            = "West US"
+  }
+}
+
+nic = {
+  nic1 = {
+    nic_name                        = "nic1"
+    location                        = "Centralindia"
+    resource_group_name             = "Module_rg1"
+    ip_config_name                  = "ipconfig1"
+    subnet_id                       = "/subscriptions/17aeb00e-3a2b-4252-a241-1b10c94e51f6/resourceGroups/Module_rg1/providers/Microsoft.Network/virtualNetworks/vnet1-vnet/subnets/web_subnet"
+    private_ip_address_allocation   = "Dynamic"
+    private_ip_address              = null
+    public_ip_address_id            = null
+  }
+  nic2 = {
+    nic_name                        = "nic2"
+    location                        = "Centralindia"
+    resource_group_name             = "Module_rg1"
+    ip_config_name                  = "ipconfig2"
+    subnet_id                       = "/subscriptions/17aeb00e-3a2b-4252-a241-1b10c94e51f6/resourceGroups/Module_rg1/providers/Microsoft.Network/virtualNetworks/vnet1-vnet/subnets/app_subnet"
+    private_ip_address_allocation   = "Dynamic"
+    private_ip_address              = null
+    public_ip_address_id            = null
+  }
+}
+
+vms = {
+  "vm1" = {
+    vm_name                          = "webvm1"
+    location                         = "Centralindia"
+    resource_group_name              = "Module_rg1"
+    nic_key                          = "nic1"
+    vm_size                          = "Standard_DS1_v2"
+    delete_os_disk_on_termination    = true
+    delete_data_disks_on_termination = true
+    publisher                        = "MicrosoftWindowsServer"
+    offer                            = "WindowsServer"
+    sku                              = "2019-Datacenter"
+    version                          = "latest"
+    os_disk_name                     = "osdisk1"
+    caching                          = "ReadWrite"
+    create_option                    = "FromImage"
+    managed_disk_type                = "Standard_LRS"
+    computer_name                    = "web-vm1"
+    admin_username                   = "azureuser"
+    admin_password                   = "Password123!"
+  }
+
+  vm2 = {
+    vm_name                          = "app_vm1"
+    location                         = "Centralindia"
+    resource_group_name              = "Module_rg1"
+    nic_key                          = "nic2"
+    vm_size                          = "Standard_DS1_v2"
+    delete_os_disk_on_termination    = true
+    delete_data_disks_on_termination = true
+    publisher                        = "MicrosoftWindowsServer"
+    offer                            = "WindowsServer"
+    sku                              = "2019-Datacenter"
+    version                          = "latest"
+    os_disk_name                     = "osdisk2"
+    caching                          = "ReadWrite"
+    create_option                    = "FromImage"
+    managed_disk_type                = "Standard_LRS"
+    computer_name                    = "app-vm1"
+    admin_username                   = "azureuser"
+    admin_password                   = "Password123!"
+  }
+}
