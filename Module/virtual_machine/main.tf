@@ -1,8 +1,8 @@
 resource "azurerm_windows_virtual_machine" "vms" {
     for_each = var.vms
     name                = each.value.vm_name
-    location            = each.value.location
-    resource_group_name = each.value.resource_group_name
+    location            = var.location
+    resource_group_name = var.resource_group_name
     network_interface_ids = [var.nic_ids[each.value.nic_key]]
     size                = each.value.vm_size
 

@@ -2,8 +2,8 @@ resource "azurerm_network_security_group" "nsg" {
   for_each = var.nsg
 
   name                = each.value.name
-  resource_group_name = each.value.resource_group_name
-  location            = each.value.location
+  resource_group_name = var.resource_group_name
+   location            = var.location
 
     security_rule {
     name                       = "test123"
