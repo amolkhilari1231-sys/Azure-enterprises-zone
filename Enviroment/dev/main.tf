@@ -64,3 +64,21 @@ module "virtual_machine" {
   resource_group_name = var.resource_group_name
 
 }
+
+module "azure_bastion" {
+
+  source = "../../Module/Azure_Bastion"
+
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  subnet_ids = module.subnet.subnet_ids
+
+  bastions = {
+    bastion1 = {
+      bastion_name   = "bastion01"
+      public_ip_name = "bastion-pip"
+      subnet_key     = "AzureBastionSubnet"
+    }
+  }
+}

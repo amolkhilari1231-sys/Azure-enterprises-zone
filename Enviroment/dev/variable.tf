@@ -78,3 +78,15 @@ variable "vms" {
     admin_password                   = string
   }))
 }
+variable "bastions" {
+
+  type = map(object({
+
+    bastion_name   = string
+    public_ip_name = string
+
+    subnet_key = string   # ✅
+
+  }))
+}
+

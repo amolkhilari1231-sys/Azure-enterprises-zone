@@ -23,6 +23,24 @@ subnet = {
     rg_name          = "Module_rg1"
     address_prefixes = ["10.0.2.0/24"]
   }
+   Application_gateway = {
+    name             = "Application_gateway"
+    vnet_name        = "vnet1-vnet"
+    rg_name          = "Module_rg1"
+    address_prefixes = ["10.0.3.0/24"]
+  }
+   database_subnet = {
+    name             = "database_subnet"
+    vnet_name        = "vnet1-vnet"
+    rg_name          = "Module_rg1"
+    address_prefixes = ["10.0.4.0/24"]
+  }
+   AzureBastionSubnet = {
+    name             = "AzureBastionSubnet"
+    vnet_name        = "vnet1-vnet"
+    rg_name          = "Module_rg1"
+    address_prefixes = ["10.0.5.0/24"]
+  }
 }
 
 storageaccount = {
@@ -44,10 +62,16 @@ nsg = {
     resource_group_name = "Module_rg1"
     location            = "Centralindia"
   }
-  nsg2 = {
-    name                = "nsg2"
-    resource_group_name = "Module_rg2"
-    location            = "West US"
+  database_nsg = {
+    name                = "database_nsg"
+    resource_group_name = "Module_rg1"
+    location            = "Centralindia"
+  }
+
+   backend_nsg = {
+    name                = "backend_nsg"
+    resource_group_name = "Module_rg1"
+    location            = "Centralindia"
   }
 }
 
@@ -124,4 +148,14 @@ vms = {
 #   delete_os_disk_on_termination    = true
 #   delete_data_disks_on_termination = true
 # }
+}
+
+bastions = {
+  bastion1 = {
+    bastion_name   = "bastion01"
+    public_ip_name = "bastion-pip"
+    subnet_key = "AzureBastionSubnet"
+
+  }
+
 }
