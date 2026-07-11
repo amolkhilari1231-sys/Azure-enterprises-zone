@@ -2,8 +2,6 @@
 variable "vms" {
   type = map(object({
     vm_name                          = string
-    location                         = string
-    resource_group_name              = string
     nic_key                          = string
     vm_size                          = string
     delete_os_disk_on_termination    = bool
@@ -22,14 +20,15 @@ variable "vms" {
   }))
 }
 
-variable "nic_ids" {
-  description = "NIC IDs"
-  type        = map(string)
-}
 variable "location" {
   type = string
 }
 
 variable "resource_group_name" {
   type = string
+}
+
+
+variable "nic_ids" {
+  type = map(string)
 }
