@@ -83,45 +83,53 @@ nic = {
 }
 
 vms = {
-  "vm1" = {
-    vm_name                          = "webvm1"
-    location                         = "Centralindia"
-    resource_group_name              = "Module_rg1"
-    nic_key                          = "nic1"
-    vm_size                          = "Standard_DS1_v2"
-    delete_os_disk_on_termination    = true
-    delete_data_disks_on_termination = true
-    publisher                        = "MicrosoftWindowsServer"
-    offer                            = "WindowsServer"
-    sku                              = "2019-Datacenter"
-    version                          = "latest"
-    os_disk_name                     = "osdisk1"
-    caching                          = "ReadWrite"
-    create_option                    = "FromImage"
-    managed_disk_type                = "Standard_LRS"
-    computer_name                    = "web-vm1"
-    admin_username                   = "azureuser"
-    admin_password                   = "Password123!"
-  }
+ vm1 = {
+  vm_name                          = "webvm1"
+  location                         = "Central India"
+  resource_group_name              = "Module_rg1"
+  nic_key                          = "nic1"
+  vm_size                          = "Standard_D2s_v3"
 
-  vm2 = {
-    vm_name                          = "app_vm1"
-    location                         = "Centralindia"
-    resource_group_name              = "Module_rg1"
-    nic_key                          = "nic2"
-    vm_size                          = "Standard_DS1_v2"
-    delete_os_disk_on_termination    = true
-    delete_data_disks_on_termination = true
-    publisher                        = "MicrosoftWindowsServer"
-    offer                            = "WindowsServer"
-    sku                              = "2019-Datacenter"
-    version                          = "latest"
-    os_disk_name                     = "osdisk2"
-    caching                          = "ReadWrite"
-    create_option                    = "FromImage"
-    managed_disk_type                = "Standard_LRS"
-    computer_name                    = "app-vm1"
-    admin_username                   = "azureuser"
-    admin_password                   = "Password123!"
-  }
+  publisher                        = "MicrosoftWindowsServer"
+  offer                            = "WindowsServer"
+  sku                              = "2019-Datacenter"
+  version                          = "latest"
+
+  os_disk_name                     = "osdisk2"
+  caching                          = "ReadWrite"
+  create_option                    = "FromImage"
+  managed_disk_type                = "Standard_LRS"
+
+  computer_name                    = "web-vm1"
+  admin_username                   = "azureuser"
+  admin_password                   = "Password123!"
+
+  delete_os_disk_on_termination    = true
+  delete_data_disks_on_termination = true
+}
+
+vm2 = {
+  vm_name                          = "appvm1"
+  location                         = "Central India"
+  resource_group_name              = "Module_rg1"
+  nic_key                          = "nic2"
+  vm_size                          = "Standard_D2s_v3"
+
+  publisher                        = "MicrosoftWindowsServer"
+  offer                            = "WindowsServer"
+  sku                              = "2019-Datacenter"
+  version                          = "latest"
+
+  os_disk_name                     = "osdisk2"
+  caching                          = "ReadWrite"
+  create_option                    = "FromImage"
+  managed_disk_type                = "Standard_LRS"
+
+  computer_name                    = "app-vm1"
+  admin_username                   = "azureuser"
+  admin_password                   = "Password123!"
+
+  delete_os_disk_on_termination    = true
+  delete_data_disks_on_termination = true
+}
 }

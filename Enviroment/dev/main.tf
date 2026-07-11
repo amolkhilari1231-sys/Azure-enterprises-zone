@@ -29,14 +29,14 @@ module "network_security_group" {
 }
 
 module "azurerm_nic" {
-  depends_on = [module.subnet]
-  source     = "../../Module/azurerm_nic"
-  nic        = var.nic
-  
+  source = "../../Module/azurerm_nic"
+
+  nic = var.nic
 }
 
 module "virtual_machine" {
-  depends_on = [module.azurerm_nic]
-  source     = "../../Module/virtual_machine"
-  vms        = var.vms
+  source = "../../Module/virtual_machine"
+
+  vms     = var.vms
+  nic_ids = module.azurerm_nic.nic_ids
 }

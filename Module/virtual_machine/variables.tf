@@ -21,3 +21,8 @@ variable "vms" {
     admin_password                   = string
   }))
 }
+
+variable "nic_ids" {
+  description = "NIC IDs"
+  type        = map(string)
+}
