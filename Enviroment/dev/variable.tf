@@ -84,6 +84,7 @@ variable "applicationGW" {
   type = map(object({
     gateway_name = string
     subnet_key   = string
+    public_ip_name = string
 
   }))
 }

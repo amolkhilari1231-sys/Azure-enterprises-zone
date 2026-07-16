@@ -78,12 +78,13 @@ module "azure_bastion" {
   bastions = var.bastions
 }
 
-module "azure_application_gateway" {
-  depends_on = [module.subnet, module.network_security_group]
+module "application_gateway" {
+  depends_on = [module.subnet]
   source     = "../../Module/azureapplicationgateway"
 
   applicationGW       = var.applicationGW
   subnet_ids          = module.subnet.subnet_ids
   location            = var.location
   resource_group_name = var.resource_group_name
+  
 }
