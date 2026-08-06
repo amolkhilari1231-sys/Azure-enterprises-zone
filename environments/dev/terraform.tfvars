@@ -38,6 +38,11 @@ subnet = {
     vnet_name        = "vnet1-vnet"
     address_prefixes = ["10.0.5.0/24"]
   }
+  testsubnet = {
+    name             = "testsubnet"
+    vnet_name        = "vnet1-vnet"
+    address_prefixes = ["10.0.6.0/24"]
+  }
 }
 
 storageaccount = {
