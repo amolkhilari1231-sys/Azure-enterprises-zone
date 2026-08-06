@@ -54,6 +54,10 @@ storageaccount = {
     name = "storageaccount2webdata"
 
   }
+  storageaccount3 = {
+    name = "storageaccount3testdata"
+
+  }
 }
 
 nsg = {
