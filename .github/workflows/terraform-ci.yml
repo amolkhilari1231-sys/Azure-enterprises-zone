@@ -1,19 +1,13 @@
 name: Terraform CI
 
 on:
-  pull_request:
-    branches:
-      - develop
-      - main
-
   push:
-    branches:
-      - develop
-      - "feature/**"
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   terraform-validation:
-
+    name: Terraform Validation
     runs-on: ubuntu-latest
 
     defaults:
@@ -24,14 +18,13 @@ jobs:
       contents: read
 
     steps:
-
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.12.2
+          terraform_version: "1.12.2"
 
       - name: Terraform Version
         run: terraform version
