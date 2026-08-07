@@ -3,9 +3,9 @@ resource "azurerm_network_security_group" "nsg" {
 
   name                = each.value.name
   resource_group_name = var.resource_group_name
-   location            = var.location
+  location            = var.location
 
-    security_rule {
+  security_rule {
     name                       = "test123"
     priority                   = 100
     direction                  = "Inbound"

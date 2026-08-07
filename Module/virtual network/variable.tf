@@ -1,7 +1,7 @@
 variable "vnet" {
   type = map(object({
-    name                = string
-    address_space       = list(string)
+    name          = string
+    address_space = list(string)
   }))
 }
 

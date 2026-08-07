@@ -3,9 +3,9 @@ variable "subnet_ids" {
 }
 variable "applicationGW" {
   type = map(object({
-    gateway_name    = string
-    subnet_key      = string
-   
+    gateway_name = string
+    subnet_key   = string
+
   }))
 }
 variable "location" {

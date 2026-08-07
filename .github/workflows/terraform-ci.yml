@@ -18,9 +18,12 @@ jobs:
       contents: read
 
     steps:
+
+      # Checkout
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
@@ -29,11 +32,33 @@ jobs:
       - name: Terraform Version
         run: terraform version
 
+      # Format
       - name: Terraform Format
         run: terraform fmt -check -recursive
 
+      # Init
       - name: Terraform Init
         run: terraform init -backend=false
 
+      # Validate
       - name: Terraform Validate
         run: terraform validate
+
+      # TFLint
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v4
+
+      - name: TFLint Init
+        run: tflint --init
+
+      - name: TFLint Scan
+        run: tflint
+
+      # # Install tfsec
+      - name: Install tfsec
+        run: |
+          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+
+      # tfsec Scan
+      - name: tfsec Scan
+        run: tfsec .
