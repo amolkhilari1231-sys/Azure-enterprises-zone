@@ -86,5 +86,5 @@ module "application_gateway" {
   subnet_ids          = module.subnet.subnet_ids
   location            = var.location
   resource_group_name = var.resource_group_name
-  
+
 }

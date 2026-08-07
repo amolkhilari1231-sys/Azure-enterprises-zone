@@ -155,8 +155,8 @@ bastions = {
 
 applicationGW = {
   appgw1 = {
-    gateway_name = "module-appgateway"
-    subnet_key   = "Application_gateway"
+    gateway_name   = "module-appgateway"
+    subnet_key     = "Application_gateway"
     public_ip_name = "appgw-pip"
   }
 }
