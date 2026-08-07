@@ -119,28 +119,28 @@ vms = {
     delete_data_disks_on_termination = true
   }
 
-  # vm2 = {
-  #   vm_name                          = "appvm1"
-  #   nic_key                          = "nic2"
-  #   vm_size                          = "Standard_D2s_v3"
+  vm2 = {
+    vm_name                          = "appvm1"
+    nic_key                          = "nic2"
+    vm_size                          = "Standard_D2s_v3"
 
-  #   publisher                        = "MicrosoftWindowsServer"
-  #   offer                            = "WindowsServer"
-  #   sku                              = "2019-Datacenter"
-  #   version                          = "latest"
+    publisher                        = "MicrosoftWindowsServer"
+    offer                            = "WindowsServer"
+    sku                              = "2019-Datacenter"
+    version                          = "latest"
 
-  #   os_disk_name                     = "osdisk2"
-  #   caching                          = "ReadWrite"
-  #   create_option                    = "FromImage"
-  #   managed_disk_type                = "Standard_LRS"
+    os_disk_name                     = "osdisk2"
+    caching                          = "ReadWrite"
+    create_option                    = "FromImage"
+    managed_disk_type                = "Standard_LRS"
 
-  #   computer_name                    = "app-vm1"
-  #   admin_username                   = "azureuser"
-  #   admin_password                   = "Password123!"
+    computer_name                    = "app-vm1"
+    admin_username                   = "azureuser"
+    admin_password                   = "Password123!"
 
-  #   delete_os_disk_on_termination    = true
-  #   delete_data_disks_on_termination = true
-  # }
+    delete_os_disk_on_termination    = true
+    delete_data_disks_on_termination = true
+  }
 }
 
 bastions = {
