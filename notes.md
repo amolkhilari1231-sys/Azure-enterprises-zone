@@ -255,11 +255,6 @@ PR can be merged
 
 ---
 
-## ⭐ Interview ke liye 1-minute answer
-
-> **"I implemented a Terraform CI pipeline using GitHub Actions. Whenever code is pushed or a pull request is created, the pipeline checks Terraform formatting, initializes and validates the configuration, runs TFLint for code quality, tfsec for infrastructure security, and Gitleaks for secret detection. If any validation or security check fails, the pipeline blocks the change. Only after all checks pass can the code proceed for merge."**
-
-### 🔥 Yaad rakh:
 
 ```text
 FMT → INIT → VALIDATE → TFLINT → TFSEC → GITLEAKS → PASS → MERGE
