@@ -62,3 +62,4 @@ jobs:
       # tfsec Scan
       - name: tfsec Scan
         run: tfsec .
+        
