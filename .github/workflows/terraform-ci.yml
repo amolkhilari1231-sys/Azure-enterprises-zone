@@ -54,10 +54,10 @@ jobs:
       - name: TFLint Scan
         run: tflint
 
-      # Install tfsec
-      - name: Install tfsec
-        run: |
-          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+      # # Install tfsec
+      # - name: Install tfsec
+      #   run: |
+      #     curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
 
       # tfsec Scan
       - name: tfsec Scan
