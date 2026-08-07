@@ -5,16 +5,16 @@ resource "azurerm_public_ip" "module_pip" {
   allocation_method   = "Static"
 }
 locals {
-  frontend_port_name                = "frontendPort"
-  frontend_ip_configuration_name    = "frontendIpConfig"
-  backend_address_pool_name         = "backendPool"
-  http_setting_name                 = "httpSetting"
-  listener_name                     = "httpListener"
-  request_routing_rule_name         = "requestRoutingRule"
+  frontend_port_name             = "frontendPort"
+  frontend_ip_configuration_name = "frontendIpConfig"
+  backend_address_pool_name      = "backendPool"
+  http_setting_name              = "httpSetting"
+  listener_name                  = "httpListener"
+  request_routing_rule_name      = "requestRoutingRule"
 }
 
 resource "azurerm_application_gateway" "application_gateway" {
-    for_each = var.applicationGW
+  for_each            = var.applicationGW
   name                = each.value.gateway_name
   resource_group_name = var.resource_group_name
   location            = var.location
